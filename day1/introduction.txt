@@ -32,6 +32,7 @@ Full Stack
         git branch (listing all the branches present)
         git branch any-name (create a new branch with given name but did not checkout(switch) to the new branch)
         git checkout branch-name (switch to the (branch-name) you mentioned) 
+        git log (return the commit history)
 		    
 			
 		    
