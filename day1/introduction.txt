@@ -27,6 +27,10 @@ Full Stack
 					    
     -> git commands ()
         git add . (adding the file in staging area)
+        git remote add origin https://github.com/MohdSadab/board-infinity
+        git branch (listing all the branches present)
+        git branch any-name (create a new branch with given name but did not checkout(switch) to the new branch)
+        git checkout branch-name (switch to the (branch-name) you mentioned) 
 		    
 			
 		    
