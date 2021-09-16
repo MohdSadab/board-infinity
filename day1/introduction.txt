@@ -1,0 +1,52 @@
+Full Stack 
+	-> frontend development
+	-> backend devlopment -> (backend language,database)
+	-> MERN MEAN LAMP DMR
+	-> databse ->(caching(in memory),ssd or hd permanent storage)
+	-> git => (version control software)
+	
+	-> github => (storage server store the files  => git add file name (or . current directory) add the file in staging state )
+	
+	
+	-> frontend (html => hyper text markup language used for page skelton browser parse the html and load required things)
+		    (css => cascading style sheet design UI (user interface) css3)
+		    (css framework => bootstrap,material-ui,semantic-ui )
+		    (js (javascript) => user interaction with html page using events event based single threaded also known EcmaScript (ES) cureent version ES(7))
+		    (libraries of js => (jquery,React,VueJs,lodash) etc)
+		    (React => javascript library)
+		    (library => set of bundulded functions)
+		    (Angular => Javascript Framework(http module))
+		    (Framework => bundles of libraries)
+		    (run at client side (browser))
+		    
+	-> backend ( scripting language => used for run the script at webserver (serverside) )
+	-> database (used for storing the users data)
+		    (sql -> structured query language) => relational schema(table) (Sql,MySql,PostgresQl,Oracle,MsSql,....)
+		    (NoSql -> Non "" '''''''''''''''') => (MongoDb (document oriented database),CocheDb,CassandraDB)
+					    
+					    
+    -> git commands ()
+        git add . (adding the file in staging area)
+		    
+			
+		    
+		    
+	
+	/bootstrap4/bootstrap_get_started.asp
+	
+	http => port 80
+	https => port 443
+	
+	ip =>used for identification of the device
+	port => used for identification of the process  running inside the device
+	 
+	www.w3schools.com => domain name 
+		1-> browser request dns server => domain name ip convert => 192.229.173.207
+		2-> browser -> through router stablished the tcp connection (3 way handshake)
+		3-> browser request for given file 
+		4-> server recieved the request and send the file
+		
+		
+	
+		
+		
