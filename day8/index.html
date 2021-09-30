@@ -1,0 +1,40 @@
+<!Doctype html>
+
+<Html>
+    <head>
+        <title>html is fun</title>
+         <script type="text/javascript" src="form.js" defer></script>
+         <link href="my_css.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <form onsubmit="submitHandler(event);"> 
+            <div>
+                <label for="name">Name</label>
+                <input type="text" name="name"  id="name" onkeyup="isValid();"/>
+            </div>
+            <div>
+                <label for="phone">Phone</label>
+                <input type="tel" name="phone"  id="phone"  onkeyup="isValid();"/>
+            </div>
+            <div>
+                <label for="age">Age</label>
+                <input type="number" name="age"  id="age"  onkeyup="isValid();"/>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email"  id="email"  onkeyup="isValid();"/>
+            </div>
+
+            <button type="submit">Submit</button>
+
+
+        </form>
+
+
+
+
+    
+    </body>
+
+</Html>
