@@ -13,3 +13,10 @@ h1.top2{
     background-color:blue;
     color: white;
 }
+
+.container{
+    position: relative;
+    top:50%;
+    left:50%;
+    height:100vh;
+}
