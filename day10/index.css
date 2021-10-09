@@ -1,0 +1,15 @@
+h1.top{
+    position: sticky;
+    top:-10px;
+    z-index: 100;
+    background-color:blue;
+    color: white;
+}
+
+h1.top2{
+    position: sticky;
+    top:-10px;
+    z-index: 101;
+    background-color:blue;
+    color: white;
+}
