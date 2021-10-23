@@ -4,6 +4,7 @@ class SimpleClassBased extends Component {
     constructor(props) {
         super()
         console.log("constructor called")
+        this.state={count:1}
     }
 
     static getDerivedStateFromProps(props,state) {
@@ -23,7 +24,9 @@ class SimpleClassBased extends Component {
 
     componentDidUpdate(prevProps, prevState){
         // called every time when compoennt is re render except first rendering
-        console.log("componentDidUpdate called")
+        console.log("componentDidUpdate called",prevState.count)
+        if(prevState.count<5)
+            this.setState(prevState=>({...prevState,count:prevState.count+1}))
         // don't update state here without condition infinite re rendering
     }
 
