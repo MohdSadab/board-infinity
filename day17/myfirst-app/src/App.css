@@ -40,3 +40,9 @@
 .my-css{
   color:blue;
 }
+
+.Apps{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -42,10 +42,11 @@ class SimpleClassBased extends Component {
         console.log("getSnapshotBeforeUpdate called",prevProps)
         return prevProps
     }
-
     render() {
+        console.log("id",this.props)
         return (
             <div>
+                <div onClick={()=>this.props.history.replace('/')}>Go Back</div>
                 SimpleClassBased Component {this.props.name}
                 <Counter />
             </div>
