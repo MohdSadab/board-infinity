@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Counter from './Counter'
 
 class SimpleClassBased extends Component {
     constructor(props) {
@@ -46,6 +47,7 @@ class SimpleClassBased extends Component {
         return (
             <div>
                 SimpleClassBased Component {this.props.name}
+                <Counter />
             </div>
         )
     }
