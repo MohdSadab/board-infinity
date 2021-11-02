@@ -1,4 +1,4 @@
-import React,{createContext,useState} from 'react'
+import React,{createContext,useReducer,useState} from 'react'
 
 
 export const TaskState=createContext({
@@ -8,7 +8,7 @@ export const TaskState=createContext({
 
 const reducer=(prevState,action)=>{
   switch(action.type){
-    
+
     case 'ADD_TASK':
         return [action.payload,...prevState]
     
@@ -29,9 +29,9 @@ const reducer=(prevState,action)=>{
 
 
 const GlobalState = (props) => {
-    const [tasks,setTasks]=useState([]);
+    const [tasks,dispatch]=useReducer(reducer,[])
     return( 
-    <TaskState.Provider value={{tasks,setTasks}}>
+    <TaskState.Provider value={{tasks,dispatch}}>
         {props.children}
     </TaskState.Provider>
     )

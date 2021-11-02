@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import './App.css';
-import CreateTask from './components/CreateTask';
 import TaskComponent from './components/TaskComponent';
 import { TaskState } from './GlobalState';
 // import SimpleClassBased from './components/SimpleClassBased';
@@ -9,20 +8,13 @@ import { TaskState } from './GlobalState';
 // 2-> if props of the component get change
 
 function TaskDone() {
-  const {tasks,setTasks}=useContext(TaskState)
+  const {tasks,dispatch}=useContext(TaskState)
   console.log(tasks.filter(task=>task.completed))
   const completeIncompleteTaskHandler=(id)=>{
-      const temp=tasks.map(task=>{
-          if(task.title===id){
-            return {...task,completed:!task.completed}
-          }
-          return task
-      })
-      setTasks(temp)
+    dispatch({type:'TOGGLE_TASK',id})
   }
   return (
     <div className="Apps">
-        <CreateTask addTaskHandler={(inputTask)=>setTasks(prevState=>[inputTask,...prevState])}/>
         {tasks.filter(task=>task.completed).map(task=>(<TaskComponent title={task.title} 
                                          key={task.title} 
                                          id={task.title}

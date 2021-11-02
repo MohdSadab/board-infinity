@@ -9,19 +9,13 @@ import { TaskState } from './GlobalState';
 // 2-> if props of the component get change
 
 function TaskRoot() {
-  const {tasks,setTasks}=useContext(TaskState)
+  const {tasks,dispatch}=useContext(TaskState)
   const completeIncompleteTaskHandler=(id)=>{
-      const temp=tasks.map(task=>{
-          if(task.title===id){
-            return {...task,completed:!task.completed}
-          }
-          return task
-      })
-      setTasks(temp)
+     dispatch({type:'TOGGLE_TASK',id})
   }
   return (
     <div className="Apps">
-        <CreateTask addTaskHandler={(inputTask)=>setTasks(prevState=>[inputTask,...prevState])}/>
+        <CreateTask addTaskHandler={(inputTask)=>dispatch({type:'ADD_TASK',payload:inputTask})}/>
         {tasks.map(task=>(<TaskComponent title={task.title} 
                                          key={task.title} 
                                          id={task.title}
