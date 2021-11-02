@@ -6,11 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import {
   BrowserRouter as Router,
 } from "react-router-dom";
+import GlobalState from './GlobalState';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-     <App />
+      <GlobalState>
+        <App />
+      </GlobalState>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

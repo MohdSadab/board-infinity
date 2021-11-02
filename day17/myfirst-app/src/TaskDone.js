@@ -8,8 +8,9 @@ import { TaskState } from './GlobalState';
 // 1-> if state of the component get change
 // 2-> if props of the component get change
 
-function TaskRoot() {
+function TaskDone() {
   const {tasks,setTasks}=useContext(TaskState)
+  console.log(tasks.filter(task=>task.completed))
   const completeIncompleteTaskHandler=(id)=>{
       const temp=tasks.map(task=>{
           if(task.title===id){
@@ -22,7 +23,7 @@ function TaskRoot() {
   return (
     <div className="Apps">
         <CreateTask addTaskHandler={(inputTask)=>setTasks(prevState=>[inputTask,...prevState])}/>
-        {tasks.map(task=>(<TaskComponent title={task.title} 
+        {tasks.filter(task=>task.completed).map(task=>(<TaskComponent title={task.title} 
                                          key={task.title} 
                                          id={task.title}
                                          isCompleted={task.completed} 
@@ -31,7 +32,7 @@ function TaskRoot() {
   );
 }
 
-export default TaskRoot;
+export default TaskDone;
 
 
 // task in todo
