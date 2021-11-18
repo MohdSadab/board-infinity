@@ -1,7 +1,8 @@
-import {combineReducers, createStore} from 'redux';
+import {combineReducers, createStore, applyMiddleware} from 'redux';
 import taskReducer from './reducers/taskReducer';
-
-
+import thunkMiddleware from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import usersReducer from './reducers/userReducer';
 
 // const stateObj={
 //     "task":[],
@@ -9,6 +10,11 @@ import taskReducer from './reducers/taskReducer';
 // }
 
 // combineReducers()
-const store =createStore(taskReducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const composedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware))
+const store =createStore(
+    combineReducers({
+    taskReducer: taskReducer,
+    usersReducer:usersReducer
+}),composedEnhancer);
 
 export default store;

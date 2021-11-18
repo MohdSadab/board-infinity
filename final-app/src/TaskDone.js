@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 import './App.css';
 import TaskComponent from './components/TaskComponent';
 // import { TaskState } from './GlobalState';
@@ -8,18 +9,19 @@ import TaskComponent from './components/TaskComponent';
 // 2-> if props of the component get change
 
 function TaskDone() {
-  // const {tasks,dispatch}=useContext(TaskState)
-  // console.log(tasks.filter(task=>task.completed))
-  // const completeIncompleteTaskHandler=(id)=>{
-  //   dispatch({type:'TOGGLE_TASK',id})
-  // }
+  const { taskReducer} = useSelector(state => state);
+  const {doneTodos}=taskReducer;
+  const completeIncompleteTaskHandler=()=>{
+    console.log("ooo")
+  }
   return (
     <div className="Apps">
-        {/* {tasks.filter(task=>task.completed).map(task=>(<TaskComponent title={task.title} 
-                                         key={task.title} 
-                                         id={task.title}
-                                         isCompleted={task.completed} 
-                                         onChangeHandler={completeIncompleteTaskHandler}/>))} */}
+        {doneTodos.map(task=>(<TaskComponent  title={task.title} 
+                                              key={task.title} 
+                                              id={task.title}
+                                              isCompleted={task.completed} 
+                                              onChangeHandler={completeIncompleteTaskHandler}/>))
+                                              } 
         Done
     </div>
   );

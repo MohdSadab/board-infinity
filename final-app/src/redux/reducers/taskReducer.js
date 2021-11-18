@@ -1,12 +1,28 @@
-import { ADD_TODO } from "../actions/action"
+import { ADD_TODO, FETCH_TODOS, MARK_AS_DONE, SET_LOADING } from "../actions/action"
 
 
-const taskReducer=(state=[],action) =>{
+const initialState={
+    isLoading:false,
+    todos:[],
+    doneTodos:[]
+}
+
+const taskReducer=(state=initialState,action) =>{
 
     switch(action.type){
         
         case ADD_TODO:
-            return [action.payload,...state]
+            return {...state,todos:[action.payload,...state.todos]}
+
+        case SET_LOADING:
+            return {...state,isLoading:action.payload}
+
+        case FETCH_TODOS:
+            return {...state,todos:action.payload}
+
+        case MARK_AS_DONE:
+            const doneTodos=state.todos.filter(({id})=>action.payload===id)
+            return {...state,doneTodos:[...doneTodos,...state.doneTodos]}
 
         default:
             return state
