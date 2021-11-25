@@ -1,0 +1,98 @@
+NO-SQL => Not a structured query language
+NoSQL Database=>(MongoDB,Cassandra,DynamoDB etc.)
+
+Scalable => horizontally distributed  
+
+No-Sql => schemaless , NO JOIN
+
+eg:
+{
+    id:1
+},
+{
+    id:2,
+    name:Sadab,
+    addres:{
+        "street":"plot 566",
+        "area":{name:"kanpur"}
+    }
+}
+
+{"addres.street":"plot 566"}
+
+{"addres.area.name":"plot 566"}
+
+
+
+
+My-sql => sql language
+scale => vertically 
+my-sql => have schema and relational table  can perform JOIN
+
+
+Terminology In MongoDB;
+
+MongoDB Document oriented database 
+Architecture (Master, slave Architecture)
+
+
+Table => collection
+row,tuple=> document 
+column => field
+
+
+// finding the document in mongodb
+
+// find the document in comments collection where name is equal to khan
+db.comments.find({name:"khan"}).pretty().limit(3);
+
+db.comments.find({name:"khan"},<projection>).pretty().limit(3);
+
+// the result will containt the list of documents having fields (name,id) 
+db.comments.find({name:"khan"},{_id:0,name:1,id:1}).pretty().limit(3);
+
+
+db.comments.find({id:{$lt:2}}).pretty();
+
+
+ find the document having id < 3 or id > 496
+
+db.comments.find(
+    {
+        $or:[
+        {id:{$lt:3}},
+        {id:{$gt:496}},
+    ]
+    }
+).pretty();
+
+ find the document having id < 3 or id > 496 and email: is equal Jayne_Kuhic@sydney.com
+db.comments.find(
+    {$and:
+    [
+    {email:"Jayne_Kuhic@sydney.com"},
+    {
+        $or:[
+        {id:{$lt:3}},
+        {id:{$gt:496}},
+    ]
+    }
+    ]
+    }
+).pretty();
+
+find the document having id < 3 or id > 496 and email: not is equal Jayne_Kuhic@sydney.com
+
+db.comments.find(
+    {$and:
+    [
+    {$not:{email:"Jayne_Kuhic@sydney.com"}},
+    {
+        $or:[
+        {id:{$lt:3}},
+        {id:{$gt:496}},
+    ]
+    }
+    ]
+    }
+).pretty();
